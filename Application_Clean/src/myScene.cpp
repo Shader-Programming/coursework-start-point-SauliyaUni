@@ -47,10 +47,17 @@ void Myscene::render()
 
 
 	glBindVertexArray(VAO);
+	//m_model = glm::rotate(m_model, (float)(glfwGetTime() * 0.5), glm::vec3(1.0, 0.0, 0.0));
+	m_myShader->setMat4("Model", m_model);
 	glDrawElements(GL_TRIANGLES, vertexData.size(), GL_UNSIGNED_INT, 0);
 
+	if (m_handler->keyHasBeenPressed()) {
+		if (m_handler->isKeyPressed(GLFW_KEY_X)) {
+			m_model = glm::rotate(m_model, (float)(glfwGetTime() * 0.5), glm::vec3(1.0, 0.0, 0.0));
+		}
+	}
 	m_model = glm::translate(m_model, glm::vec3(5.0, 0.0, 0.0));
-	m_model = glm::rotate(m_model, (float)(glfwGetTime() * 0.5), glm::vec3(1.0, 0.0, 0.0));
+	
 	m_myShader->setMat4("Model", m_model);
 
 	glDrawElements(GL_TRIANGLES, vertexData.size(), GL_UNSIGNED_INT, 0);
