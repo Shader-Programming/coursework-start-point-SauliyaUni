@@ -22,14 +22,17 @@ void Myscene::makeVAO()
 	glNamedBufferStorage(EBO, sizeof(unsigned int) * cubeIndices.size(), cubeIndices.data(),GL_DYNAMIC_STORAGE_BIT);
 
 	glCreateVertexArrays(1, &VAO);
-	glVertexArrayVertexBuffer(VAO, 0, VBO, 0,sizeof(float) * 3);
+	glVertexArrayVertexBuffer(VAO, 0, VBO, 0,sizeof(float) * 6);
 	glVertexArrayElementBuffer(VAO, EBO);
 
 	glEnableVertexArrayAttrib(VAO, 0);
+	glEnableVertexArrayAttrib(VAO, 1);
 
 	glVertexArrayAttribFormat(VAO, 0, 3, GL_FLOAT, GL_FALSE, 0);
+	glVertexArrayAttribFormat(VAO, 1, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float));
 
 	glVertexArrayAttribBinding(VAO, 0, 0);
+	glVertexArrayAttribBinding(VAO, 1, 0);
 	
 
 }
