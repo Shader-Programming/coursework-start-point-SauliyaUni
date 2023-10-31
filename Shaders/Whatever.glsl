@@ -8,7 +8,13 @@ uniform mat4 View;
 uniform mat4 Projection;
 
 out vec3 normal;
+out vec3 posInWS;
+//out vec3 viewPos;
+
 void main() {
 	normal = aNormal;
-	gl_Position = Projection * View * Model * vec4(aPos, 1.0);
+
+	vec4 worldSpace = Model * vec4(aPos, 1.0);
+	posInWS = worldSpace.xyz;
+	gl_Position = Projection * View * worldSpace;
 }
