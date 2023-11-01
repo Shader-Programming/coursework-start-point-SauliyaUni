@@ -2,6 +2,7 @@
 
 #include "Scene.h"
 #include "Shader.h"
+#include "Light/DirectionalLight.h"
 
 /*
 Child Class of Scene
@@ -23,6 +24,8 @@ private:
 							0.5,0.5,0.0, 1.0, 0.0, 0.0,
 							0.5, -0.5, 0.0, 0.0, 1.0, 0.0,
 							-0.5,-0.5,0.0, 0.0, 0.0, 1.0};*/
+	DirectionalLight* m_directionalLight;
+
 	std::vector<float> vertexData = {
 		//  xyz, normal
 		// back
@@ -65,6 +68,7 @@ private:
 		16, 17, 18, 18, 19, 16,
 		20, 21, 22, 22, 23, 20
 	};
+
 	void makeVAO();
 	void render();
 	Shader* m_myShader;

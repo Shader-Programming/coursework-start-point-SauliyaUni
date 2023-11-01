@@ -12,7 +12,7 @@ out vec3 posInWS;
 //out vec3 viewPos;
 
 void main() {
-	normal = aNormal;
+	normal = mat3(transpose(inverse(Model))) * aNormal;
 
 	vec4 worldSpace = Model * vec4(aPos, 1.0);
 	posInWS = worldSpace.xyz;
