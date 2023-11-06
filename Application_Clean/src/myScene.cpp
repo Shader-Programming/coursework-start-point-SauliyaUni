@@ -22,18 +22,24 @@ Myscene::~Myscene()
 void Myscene::render()
 {
 	m_model = glm::mat4(1.0f);
-	m_projection = m_camera->getProjectionMatrix();
-	m_view = m_camera->getViewMatrix();
+	/*m_projection = m_camera->getProjectionMatrix();
+	m_view = m_camera->getViewMatrix();*/
 	m_myShader->use();
 
 	m_myShader->setMat4("View", m_camera->getViewMatrix());
 	m_myShader->setMat4("Projection", m_camera->getProjectionMatrix());
-	m_myShader->setMat4("Model", m_model);
 	m_myShader->setVec3("viewPos", m_camera->getPosition());
 
 	glBindVertexArray(m_cube->getVAO());
+	m_cube->rotate((float)(glfwGetTime() * 0.2), glm::vec3(10.0, 0.0, 0.0));
 	m_cube->setTransform(m_myShader);
 	glDrawElements(GL_TRIANGLES, m_cube->getIndicesCount(), GL_UNSIGNED_INT, 0);
+
+	m_cube->translate(glm::vec3(5.0, 0.0, 0.0));
+	m_cube->rotate((float)(glfwGetTime() * 0.5), glm::vec3(1.0, 0.0, 0.0));
+	m_cube->setTransform(m_myShader);
+	glDrawElements(GL_TRIANGLES, m_cube->getIndicesCount(), GL_UNSIGNED_INT, 0);
+	m_cube->resetTransform();
 
 	//glBindVertexArray(m_cube->getVAO());
 	////m_model = glm::rotate(m_model, (float)(glfwGetTime() * 0.5), glm::vec3(1.0, 0.0, 0.0));

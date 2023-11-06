@@ -19,6 +19,12 @@
     <Filter Include="Source Files\Light">
       <UniqueIdentifier>{a31630d9-d432-4850-bcfa-d8ca8fd1dba4}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Cube">
+      <UniqueIdentifier>{ba1d997e-4bfc-41e6-bf6e-d14a15e63e67}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Cube">
+      <UniqueIdentifier>{2e160c1e-0fea-4283-8961-5d0be162de9d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\EntryPoint.cpp">
@@ -46,10 +52,10 @@
       <Filter>Source Files\Light</Filter>
     </ClCompile>
     <ClCompile Include="include\Cube\Cube.h">
-      <Filter>Source Files</Filter>
+      <Filter>Header Files\Cube</Filter>
     </ClCompile>
     <ClCompile Include="src\Cube\Cube.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Cube</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

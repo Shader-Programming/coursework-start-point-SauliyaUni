@@ -14,7 +14,17 @@ Cube::~Cube()
 
 void Cube::rotate(float angle, glm::vec3 axis)
 {
+	m_transform = glm::rotate(m_transform, angle, axis);
+}
+//
+void Cube::scale(float scaleFactor, glm::vec3 axis)
+{
+	m_transform = glm::scale(m_transform, axis);
+}
 
+void Cube::translate(glm::vec3 translation)
+{
+	m_transform = glm::translate(m_transform, translation);
 }
 
 void Cube::makeVAO()
