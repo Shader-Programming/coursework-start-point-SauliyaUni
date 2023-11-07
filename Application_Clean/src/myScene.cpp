@@ -5,11 +5,13 @@
 Myscene::Myscene(GLFWwindow* window, InputHandler* H) : Scene(window, H) {
 	m_camera = new FirstPersonCamera();
 	m_camera->attachHandler(m_window, m_handler);
-	m_myShader = new Shader("..\\Shaders\\Whatever.glsl", "..\\Shaders\\Fragment.glsl");
+	m_myShader = new Shader("..\\Shaders\\Shader.glsl", "..\\Shaders\\Fragment.glsl");
 	m_directionalLight = new DirectionalLight(glm::vec3(1.0), glm::vec3(0.0, -1.0f, 0.0f));
 	m_directionalLight->setLightUniforms(m_myShader);
 	m_cube = new Cube(glm::vec3(0.1, 0.2, 0.3), 64, 16);
 	m_cube->setCubeMaterialValues(m_myShader);
+	m_pointLight = new PointLight(glm::vec3(1.0, 0.0, 0.0), glm::vec3(-2.0, 0.0, 0.0), glm::vec3(1.0, 0.22, 0.02));
+	m_pointLight ->setLightUniforms(m_myShader);
 }
 
 Myscene::~Myscene()
@@ -31,7 +33,12 @@ void Myscene::render()
 	m_myShader->setVec3("viewPos", m_camera->getPosition());
 
 	glBindVertexArray(m_cube->getVAO());
-	m_cube->rotate((float)(glfwGetTime() * 0.2), glm::vec3(10.0, 0.0, 0.0));
+	if (m_handler->keyHasBeenPressed()) {
+		if (m_handler->isKeyPressed(GLFW_KEY_X)) {
+			m_cube->rotate((float)(glfwGetTime() * 0.5), glm::vec3(0.0, 0.0, 5.0));
+		}
+	}
+	
 	m_cube->setTransform(m_myShader);
 	glDrawElements(GL_TRIANGLES, m_cube->getIndicesCount(), GL_UNSIGNED_INT, 0);
 

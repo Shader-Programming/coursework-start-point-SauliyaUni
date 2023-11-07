@@ -4,6 +4,7 @@
 #include "Shader.h"
 #include "Light/DirectionalLight.h"
 #include "Cube/Cube.h"
+#include <PointLight/PointLight.h>
 
 /*
 Child Class of Scene
@@ -27,6 +28,7 @@ private:
 							-0.5,-0.5,0.0, 0.0, 0.0, 1.0};*/
 	DirectionalLight* m_directionalLight;
 	Cube* m_cube;
+	PointLight* m_pointLight;
 	void render();
 	Shader* m_myShader;
 };

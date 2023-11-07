@@ -2,15 +2,21 @@
 uniform vec3 viewPos;
 uniform vec3 cubeColour;
 uniform vec3 lightColour;
-uniform vec3 lightDirection;
-uniform vec3 plightPosition;
-uniform vec3 plightColour;
-uniform vec3 pAttentuation;
+uniform vec3 lightDirection;;
 
 uniform float ambientFactor;
 uniform float shine;
 uniform float specStrength;
 float specLevel;
+
+struct pointLight {
+    vec3 colour;
+    vec3 position;
+    vec3 constants;
+};
+
+#define numPL 2
+uniform pointLight pArray[numPL];
 
 out vec4 FragColor;
 
@@ -42,31 +48,34 @@ vec3 getDirectionalLight() {
 
 vec3 getPointLight()
 {
-    vec3 ambient = cubeColour * lightColour * ambientFactor;
+    vec3 ambient = cubeColour * plightColour * ambientFactor;
 
-    float distance = length(plightPosition - posInWS);
+    float distance = length(pArray[0].position - posInWS);
     float attn = 1.0 / (pAttentuation.x + (pAttentuation.y * distance) + (pAttentuation.z * (distance * distance)));
-    vec3 lightDir = normalize((plightPosition - posInWS));
+    vec3 lightDir = normalize((pArray[0].position - posInWS));
 
     //diffuse
-    float diffuseFactor = dot(n, -lightDirection);
+    float diffuseFactor = dot(n, -lightDir);
     diffuseFactor = max(diffuseFactor, 0.0f);
-    vec3 diffuse = cubeColour * lightColour * diffuseFactor;
+    vec3 diffuse = cubeColour * plightColour * diffuseFactor;
 
-    vec3 H = normalize(-lightDirection + viewDir);
+    vec3 H = normalize(-lightDir + viewDir);
     specLevel = dot(n, H);
     specLevel = max(specLevel, 0.0);
     specLevel = pow(specLevel, shine);
-    vec3 specular = lightColour * specLevel * specStrength;
+    vec3 specular = plightColour * specLevel * specStrength;
 
-   /* diffuse = diffuse* attn;
-    specular = specular* attn;*/
+    diffuse = diffuse* attn;
+    specular = specular* attn;
     return diffuse + specular;
 }
 
 void main() {
    
     vec3 result = getDirectionalLight();
+    /*for (int i = 0; i < numPl; i++) {
+        ersult += getPointLight(i);
+    }*/
     result += getPointLight();
     FragColor = vec4(result, 1.0);
 

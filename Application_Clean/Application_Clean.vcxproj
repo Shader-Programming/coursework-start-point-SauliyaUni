@@ -146,6 +146,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="include\Cube\Cube.h" />
+    <ClCompile Include="src\Cube\PointLight\PointLight.cpp" />
     <ClCompile Include="src\Cube\Cube.cpp" />
     <ClCompile Include="src\Light\DirectionalLight.cpp" />
     <ClCompile Include="src\EntryPoint.cpp" />
@@ -168,6 +169,7 @@
     <ClInclude Include="include\Shader.h" />
     <ClInclude Include="include\WindowManager.h" />
     <ClInclude Include="include\Light\Light.h" />
+    <ClInclude Include="include\PointLight\PointLight.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
