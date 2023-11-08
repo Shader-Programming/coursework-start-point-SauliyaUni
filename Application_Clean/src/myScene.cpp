@@ -10,8 +10,10 @@ Myscene::Myscene(GLFWwindow* window, InputHandler* H) : Scene(window, H) {
 	m_directionalLight->setLightUniforms(m_myShader);
 	m_cube = new Cube(glm::vec3(0.1, 0.2, 0.3), 64, 16);
 	m_cube->setCubeMaterialValues(m_myShader);
+
 	m_pointLight = new PointLight(glm::vec3(1.0, 0.0, 0.0), glm::vec3(-2.0, 0.0, 0.0), glm::vec3(1.0, 0.22, 0.02));
 	m_pointLight ->setLightUniforms(m_myShader);
+
 }
 
 Myscene::~Myscene()

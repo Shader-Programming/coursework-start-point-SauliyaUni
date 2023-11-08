@@ -156,6 +156,7 @@
     <ClCompile Include="src\myScene.cpp" />
     <ClCompile Include="src\Shader.cpp" />
     <ClCompile Include="src\WindowManager.cpp" />
+    <ClCompile Include="src\Cube\PointLight\Texture\TextureManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\Light\DirectionalLight.h" />
@@ -170,6 +171,7 @@
     <ClInclude Include="include\WindowManager.h" />
     <ClInclude Include="include\Light\Light.h" />
     <ClInclude Include="include\PointLight\PointLight.h" />
+    <ClInclude Include="include\Texture\TextureManager.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
