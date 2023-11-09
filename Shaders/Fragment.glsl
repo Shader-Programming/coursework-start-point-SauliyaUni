@@ -9,6 +9,10 @@ uniform float shine;
 uniform float specStrength;
 float specLevel;
 
+uniform sampler2D diffuseMap;
+uniform sampler2D specularMap;
+
+
 
 struct pointLight {
     vec3 colour;
@@ -23,18 +27,24 @@ out vec4 FragColor;
 
 in vec3 normal;
 in vec3 posInWS;
+in vec2 UV;
+
+
 
 vec3 n = normalize(normal);
 vec3 viewDir = normalize(viewPos - posInWS);
 
 vec3 getDirectionalLight() {
+
+    vec3 objCol = texture(diffuseMap, UV).rgb;
+    float specStrength = texture(specularMap, UV).r;
     //ambient
-    vec3 ambient = cubeColour * lightColour * ambientFactor;
+    vec3 ambient = objCol * lightColour * ambientFactor;
     //diffuse
     
     float diffuseFactor = dot(n, -lightDirection);
     diffuseFactor = max(diffuseFactor, 0.0f);
-    vec3 diffuse = cubeColour * lightColour * diffuseFactor;
+    vec3 diffuse = objCol * lightColour * diffuseFactor;
     //Blinn Phong Specular
     
     vec3 H = normalize(-lightDirection + viewDir);

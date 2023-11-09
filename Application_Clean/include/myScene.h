@@ -5,6 +5,7 @@
 #include "Light/DirectionalLight.h"
 #include "Cube/Cube.h"
 #include <PointLight/PointLight.h>
+#include "Texture/TextureManager.h"
 
 /*
 Child Class of Scene
@@ -29,6 +30,7 @@ private:
 	DirectionalLight* m_directionalLight;
 	Cube* m_cube;
 	PointLight* m_pointLight;
+	TextureManager* m_textureManager;
 	void render();
 	Shader* m_myShader;
 };

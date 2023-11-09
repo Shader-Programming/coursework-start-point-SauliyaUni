@@ -14,6 +14,12 @@ Myscene::Myscene(GLFWwindow* window, InputHandler* H) : Scene(window, H) {
 	m_pointLight = new PointLight(glm::vec3(1.0, 0.0, 0.0), glm::vec3(-2.0, 0.0, 0.0), glm::vec3(1.0, 0.22, 0.02));
 	m_pointLight ->setLightUniforms(m_myShader);
 
+	TextureManager* m_textureManager = new TextureManager();
+	unsigned int cubeDiff = TextureManager::loadTexture("..\\Resources\\diffuseCube.jpg");
+	unsigned int cubeSpec = TextureManager::loadTexture("..\\Resources\\specularCube.jpg");
+
+
+
 }
 
 Myscene::~Myscene()

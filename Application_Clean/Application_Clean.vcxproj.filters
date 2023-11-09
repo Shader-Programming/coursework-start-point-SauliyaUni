@@ -75,6 +75,9 @@
     <ClCompile Include="src\Cube\PointLight\Texture\TextureManager.cpp">
       <Filter>Source Files\Texture</Filter>
     </ClCompile>
+    <ClCompile Include="src\Cube\PointLight\Texture\stb_image.cpp">
+      <Filter>Source Files\Texture</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\WindowManager.h">
@@ -114,6 +117,9 @@
       <Filter>Header Files\PointLight</Filter>
     </ClInclude>
     <ClInclude Include="include\Texture\TextureManager.h">
+      <Filter>Header Files\Texture</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Texture\stb_image.h">
       <Filter>Header Files\Texture</Filter>
     </ClInclude>
   </ItemGroup>

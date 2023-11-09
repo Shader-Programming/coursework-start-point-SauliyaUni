@@ -30,6 +30,8 @@ private:
 	unsigned int m_VAO;
 	float m_shine;
 	float m_specularStrength;
+	float m_specularTexture;
+	float m_diffuseTexture;
 	glm::vec3 m_colour;
 
 	std::vector<float> vertexData = {
