@@ -146,9 +146,9 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="include\Cube\Cube.h" />
-    <ClCompile Include="src\Cube\PointLight\PointLight.cpp" />
+    <ClCompile Include="src\PointLight\PointLight.cpp" />
     <ClCompile Include="src\Cube\Cube.cpp" />
-    <ClCompile Include="src\Cube\PointLight\Texture\stb_image.cpp" />
+    <ClCompile Include="src\Texture\stb_image.cpp" />
     <ClCompile Include="src\Light\DirectionalLight.cpp" />
     <ClCompile Include="src\EntryPoint.cpp" />
     <ClCompile Include="src\FPSCamera.cpp" />
@@ -157,7 +157,7 @@
     <ClCompile Include="src\myScene.cpp" />
     <ClCompile Include="src\Shader.cpp" />
     <ClCompile Include="src\WindowManager.cpp" />
-    <ClCompile Include="src\Cube\PointLight\Texture\TextureManager.cpp" />
+    <ClCompile Include="src\Texture\TextureManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\Light\DirectionalLight.h" />
@@ -174,6 +174,43 @@
     <ClInclude Include="include\Light\Light.h" />
     <ClInclude Include="include\PointLight\PointLight.h" />
     <ClInclude Include="include\Texture\TextureManager.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="x64\Debug\Application_Clean.Build.CppClean.log" />
+    <Text Include="x64\Debug\Application_Clean.log" />
+    <Text Include="x64\Debug\Application_Clean.vcxproj.FileListAbsolute.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="x64\Debug\Applicat.a85782d9.tlog\Application_Clean.lastbuildstate" />
+    <None Include="x64\Debug\Applicat.a85782d9.tlog\CL.command.1.tlog" />
+    <None Include="x64\Debug\Applicat.a85782d9.tlog\CL.read.1.tlog" />
+    <None Include="x64\Debug\Applicat.a85782d9.tlog\CL.write.1.tlog" />
+    <None Include="x64\Debug\Applicat.a85782d9.tlog\link-cvtres.read.1.tlog" />
+    <None Include="x64\Debug\Applicat.a85782d9.tlog\link-cvtres.write.1.tlog" />
+    <None Include="x64\Debug\Applicat.a85782d9.tlog\link-rc.read.1.tlog" />
+    <None Include="x64\Debug\Applicat.a85782d9.tlog\link-rc.write.1.tlog" />
+    <None Include="x64\Debug\Applicat.a85782d9.tlog\link.command.1.tlog" />
+    <None Include="x64\Debug\Applicat.a85782d9.tlog\link.read.1.tlog" />
+    <None Include="x64\Debug\Applicat.a85782d9.tlog\link.read.2.tlog" />
+    <None Include="x64\Debug\Applicat.a85782d9.tlog\link.write.1.tlog" />
+    <None Include="x64\Debug\Applicat.a85782d9.tlog\unsuccessfulbuild" />
+    <None Include="x64\Debug\Application_Clean.exe.recipe" />
+    <None Include="x64\Debug\vc143.idb" />
+    <None Include="x64\Debug\vc143.pdb" />
+  </ItemGroup>
+  <ItemGroup>
+    <Object Include="x64\Debug\Cube.obj" />
+    <Object Include="x64\Debug\DirectionalLight.obj" />
+    <Object Include="x64\Debug\EntryPoint.obj" />
+    <Object Include="x64\Debug\FPSCamera.obj" />
+    <Object Include="x64\Debug\glad.obj" />
+    <Object Include="x64\Debug\InputHandler.obj" />
+    <Object Include="x64\Debug\myScene.obj" />
+    <Object Include="x64\Debug\PointLight.obj" />
+    <Object Include="x64\Debug\Shader.obj" />
+    <Object Include="x64\Debug\stb_image.obj" />
+    <Object Include="x64\Debug\TextureManager.obj" />
+    <Object Include="x64\Debug\WindowManager.obj" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

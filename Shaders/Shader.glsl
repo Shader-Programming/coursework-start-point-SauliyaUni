@@ -18,5 +18,6 @@ void main() {
 
 	vec4 worldSpace = Model * vec4(aPos, 1.0);
 	posInWS = worldSpace.xyz;
+	UV = aUV;
 	gl_Position = Projection * View * worldSpace;
 }

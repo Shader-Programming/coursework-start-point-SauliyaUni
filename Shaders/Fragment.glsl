@@ -6,7 +6,7 @@ uniform vec3 lightDirection;;
 
 uniform float ambientFactor;
 uniform float shine;
-uniform float specStrength;
+//uniform float specStrength;
 float specLevel;
 
 uniform sampler2D diffuseMap;
@@ -38,6 +38,7 @@ vec3 getDirectionalLight() {
 
     vec3 objCol = texture(diffuseMap, UV).rgb;
     float specStrength = texture(specularMap, UV).r;
+
     //ambient
     vec3 ambient = objCol * lightColour * ambientFactor;
     //diffuse
@@ -59,7 +60,10 @@ vec3 getDirectionalLight() {
 
 vec3 getPointLight()
 {
-    vec3 ambient = cubeColour * pArray[0].colour * ambientFactor;
+    vec3 objCol = texture(diffuseMap, UV).rgb;
+    float specStrength = texture(specularMap, UV).r;
+
+    vec3 ambient = objCol * pArray[0].colour * ambientFactor;
 
     float distance = length(pArray[0].position - posInWS);
     float attn = 1.0 / (pArray[0].constants.x + (pArray[0].constants.y * distance) + (pArray[0].constants.z * (distance * distance)));
@@ -68,7 +72,7 @@ vec3 getPointLight()
     //diffuse
     float diffuseFactor = dot(n, -lightDir);
     diffuseFactor = max(diffuseFactor, 0.0f);
-    vec3 diffuse = cubeColour * pArray[0].colour * diffuseFactor;
+    vec3 diffuse = objCol * pArray[0].colour * diffuseFactor;
 
     vec3 H = normalize(-lightDir + viewDir);
     specLevel = dot(n, H);
