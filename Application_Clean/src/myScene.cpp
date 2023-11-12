@@ -8,8 +8,6 @@ Myscene::Myscene(GLFWwindow* window, InputHandler* H) : Scene(window, H) {
 	m_myShader = new Shader("..\\Shaders\\Shader.glsl", "..\\Shaders\\Fragment.glsl");
 	m_directionalLight = new DirectionalLight(glm::vec3(1.0), glm::vec3(0.0, -1.0f, 0.0f));
 	m_directionalLight->setLightUniforms(m_myShader);
-	m_cube = new Cube(0.1,0.1,1.0f);
-	m_cube->setCubeMaterialValues(m_myShader);
 
 	m_pointLight = new PointLight(glm::vec3(1.0, 0.0, 0.0), glm::vec3(-2.0, 0.0, 0.0), glm::vec3(1.0, 0.22, 0.02));
 	m_pointLight ->setLightUniforms(m_myShader);
@@ -17,6 +15,9 @@ Myscene::Myscene(GLFWwindow* window, InputHandler* H) : Scene(window, H) {
 	m_textureManager = new TextureManager();
 	unsigned int cubeDiff = TextureManager::loadTexture("..\\Resources\\diffuseCube.jpg");
 	unsigned int cubeSpec = TextureManager::loadTexture("..\\Resources\\specularCube.jpg");
+
+	m_cube = new Cube(cubeDiff,cubeSpec, 2.0f);
+	m_cube->setCubeMaterialValues(m_myShader);
 
 
 

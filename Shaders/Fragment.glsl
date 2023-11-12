@@ -6,13 +6,11 @@ uniform vec3 lightDirection;;
 
 uniform float ambientFactor;
 uniform float shine;
-//uniform float specStrength;
+uniform float specStrength;
 float specLevel;
 
 uniform sampler2D diffuseMap;
 uniform sampler2D specularMap;
-
-
 
 struct pointLight {
     vec3 colour;
