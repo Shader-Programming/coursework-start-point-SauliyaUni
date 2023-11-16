@@ -146,6 +146,8 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="include\Cube\Cube.h" />
+    <ClCompile Include="src\Floor\Floor.cpp" />
+    <ClCompile Include="src\SpotLight\SpotLight.cpp" />
     <ClCompile Include="src\PointLight\PointLight.cpp" />
     <ClCompile Include="src\Cube\Cube.cpp" />
     <ClCompile Include="src\Texture\stb_image.cpp" />
@@ -160,6 +162,7 @@
     <ClCompile Include="src\Texture\TextureManager.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="include\Floor\Floor.h" />
     <ClInclude Include="include\Light\DirectionalLight.h" />
     <ClInclude Include="include\Camera.h" />
     <ClInclude Include="include\FPSCamera.h" />
@@ -174,6 +177,7 @@
     <ClInclude Include="include\Light\Light.h" />
     <ClInclude Include="include\PointLight\PointLight.h" />
     <ClInclude Include="include\Texture\TextureManager.h" />
+    <ClInclude Include="include\SpotLight\SpotLight.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="x64\Debug\Application_Clean.Build.CppClean.log" />

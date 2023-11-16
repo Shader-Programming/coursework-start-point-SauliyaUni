@@ -37,6 +37,18 @@
     <Filter Include="Source Files\Texture">
       <UniqueIdentifier>{a4fe556c-f870-4dc0-aa1a-04affc2e6587}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\SpotLight">
+      <UniqueIdentifier>{872ba7c1-cc7a-4761-a583-17a58d7afcf4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\SpotLight">
+      <UniqueIdentifier>{45bef10f-9a2b-4588-ab5f-7e3c41c4d498}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Floor">
+      <UniqueIdentifier>{e900639a-58f6-46f9-a720-d1811e4bc554}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Floor">
+      <UniqueIdentifier>{bf2c4952-82d5-4229-8fb1-9752da77b4e9}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\EntryPoint.cpp">
@@ -77,6 +89,12 @@
     </ClCompile>
     <ClCompile Include="src\Texture\stb_image.cpp">
       <Filter>Source Files\Texture</Filter>
+    </ClCompile>
+    <ClCompile Include="src\SpotLight\SpotLight.cpp">
+      <Filter>Source Files\SpotLight</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Floor\Floor.cpp">
+      <Filter>Source Files\Floor</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -121,6 +139,12 @@
     </ClInclude>
     <ClInclude Include="include\Texture\stb_image.h">
       <Filter>Header Files\Texture</Filter>
+    </ClInclude>
+    <ClInclude Include="include\SpotLight\SpotLight.h">
+      <Filter>Header Files\SpotLight</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Floor\Floor.h">
+      <Filter>Header Files\Floor</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

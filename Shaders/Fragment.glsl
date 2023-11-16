@@ -12,6 +12,12 @@ float specLevel;
 uniform sampler2D diffuseMap;
 uniform sampler2D specularMap;
 
+uniform vec3 slightPosition;
+uniform vec3 slightColour;
+uniform vec3 sAttentuation;
+uniform vec3 sDirection;
+uniform vec2 sRadii;
+
 struct pointLight {
     vec3 colour;
     vec3 position;
@@ -83,11 +89,47 @@ vec3 getPointLight()
     return diffuse + specular;
 }
 
+vec3 getSpotLight(){
+
+     vec3 objCol = texture(diffuseMap, UV).rgb;
+    float specStrength = texture(specularMap, UV).r;
+
+    float distance = length(slightPosition - posInWS);
+    float attn = 1.0 / (sAttentuation.x + (sAttentuation.y * distance) + (sAttentuation.z * (distance * distance)));
+    vec3 lightDir = normalize((slightPosition - posInWS));
+
+    float diffuseFactor = dot(n, lightDir);
+    diffuseFactor = max(diffuseFactor, 0.0f);
+    vec3 diffuse = objCol * slightColour * diffuseFactor;
+
+    vec3 ambient = objCol * slightColour * ambientFactor;
+
+    vec3 H = normalize(lightDir + viewDir);
+    specLevel = dot(n, H);
+    specLevel = max(specLevel, 0.0);
+    specLevel = pow(specLevel, shine);
+    vec3 specular = slightColour * specLevel * specStrength;
+
+    diffuse = diffuse * attn;
+    specular = specular * attn;
+
+    float theta = dot(-lightDir, normalize(sDirection));
+    float denom = (sRadii.x - sRadii.y);
+    float intensity = (theta - sRadii.y) / denom;
+    intensity = clamp(intensity, 0.0, 1.0);
+    diffuse = diffuse * intensity;
+    specular = specular * intensity;
+
+    return diffuse + specular + ambient;
+
+}
+
 void main() {
    
     vec3 result = getDirectionalLight();
   
     result += getPointLight();
+    //result +=getSpotLight();
     FragColor = vec4(result, 1.0);
 
 }

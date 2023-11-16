@@ -6,6 +6,8 @@
 #include "Cube/Cube.h"
 #include <PointLight/PointLight.h>
 #include "Texture/TextureManager.h"
+#include "SpotLight/SpotLight.h"
+#include "Floor/Floor.h"
 
 /*
 Child Class of Scene
@@ -21,16 +23,20 @@ public:
 private:
 	
 	glm::mat4 m_model, m_view, m_projection;
-	/*float vertexData[36] = { 0.5,0.5,0.0, 1.0, 0.0, 0.0,
-							-0.5,0.5,0.0, 0.0,1.0, 0.0,
-							- 0.5,-0.5,0.0, 0.0, 0.0, 1.0,
-							0.5,0.5,0.0, 1.0, 0.0, 0.0,
-							0.5, -0.5, 0.0, 0.0, 1.0, 0.0,
-							-0.5,-0.5,0.0, 0.0, 0.0, 1.0};*/
+
 	DirectionalLight* m_directionalLight;
+
 	Cube* m_cube;
+
 	PointLight* m_pointLight;
+
 	TextureManager* m_textureManager;
+
+	SpotLight* m_spotLight;
+
+	Plane* m_plane;
+
 	void render();
+
 	Shader* m_myShader;
 };
