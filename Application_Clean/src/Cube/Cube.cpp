@@ -69,6 +69,3 @@ void Cube::setCubeMaterialValues(Shader* shader)
 	glBindTextureUnit(0, m_diffuseTexture);
 	glBindTextureUnit(1, m_specularTexture);
 }
-
-	//shader->setVec3("cubeColour", m_colour);
-	//shader->setFloat("specStrength", m_specularStrength);
