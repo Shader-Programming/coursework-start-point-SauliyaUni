@@ -31,7 +31,7 @@ void Cube::translate(glm::vec3 translation)
 void Cube::makeVAO()
 {
 	glCreateBuffers(1, &m_VAO);
-	glNamedBufferStorage(m_VAO, sizeof(float) * vertexData.size(), vertexData.data(), GL_DYNAMIC_STORAGE_BIT); 
+	glNamedBufferStorage(m_VAO, sizeof(float) * vertexData.size(), vertexData.data(), GL_DYNAMIC_STORAGE_BIT);
 
 	glCreateBuffers(1, &EBO);
 	glNamedBufferStorage(EBO, sizeof(unsigned int) * cubeIndices.size(), cubeIndices.data(), GL_DYNAMIC_STORAGE_BIT);
@@ -43,7 +43,7 @@ void Cube::makeVAO()
 	glEnableVertexArrayAttrib(m_VAO, 0);
 	glEnableVertexArrayAttrib(m_VAO, 1);
 	glEnableVertexArrayAttrib(m_VAO, 2);
-	
+
 
 	glVertexArrayAttribFormat(m_VAO, 0, 3, GL_FLOAT, GL_FALSE, 0);
 	glVertexArrayAttribFormat(m_VAO, 1, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float));
@@ -53,9 +53,9 @@ void Cube::makeVAO()
 	glVertexArrayAttribBinding(m_VAO, 1, 0);
 	glVertexArrayAttribBinding(m_VAO, 2, 0);
 
-	
 
-	
+
+
 
 }
 

@@ -29,10 +29,10 @@ private:
 	glm::mat4 m_transform;
 	unsigned int m_VAO;
 	float m_shine;
-	//float m_specularStrength;
+	
 	unsigned int m_specularTexture;
 	unsigned int m_diffuseTexture;
-	//glm::vec3 m_colour;
+	
 
 	std::vector<float> vertexData = {
 			

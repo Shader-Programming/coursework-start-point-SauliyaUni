@@ -45,13 +45,13 @@ vec3 getDirectionalLight() {
 
     //ambient
     vec3 ambient = objCol * lightColour * ambientFactor;
+
     //diffuse
-    
     float diffuseFactor = dot(n, -lightDirection);
     diffuseFactor = max(diffuseFactor, 0.0f);
     vec3 diffuse = objCol * lightColour * diffuseFactor;
+
     //Blinn Phong Specular
-    
     vec3 H = normalize(-lightDirection + viewDir);
     specLevel = dot(n, H);
     specLevel = max(specLevel, 0.0);
@@ -67,6 +67,7 @@ vec3 getPointLight()
     vec3 objCol = texture(diffuseMap, UV).rgb;
     float specStrength = texture(specularMap, UV).r;
 
+    //ambient
     vec3 ambient = objCol * pArray[0].colour * ambientFactor;
 
     float distance = length(pArray[0].position - posInWS);
@@ -129,7 +130,6 @@ void main() {
     vec3 result = getDirectionalLight();
   
     result += getPointLight();
-    //result +=getSpotLight();
     FragColor = vec4(result, 1.0);
 
 }
