@@ -21,7 +21,7 @@ Myscene::Myscene(GLFWwindow* window, InputHandler* H) : Scene(window, H) {
 	m_spotLight = new SpotLight(glm::vec3(0.5, 1.0, 0.0), glm::vec3(0.0, 7.0, 0.0), glm::vec3(1.0, 0.027, 0.0028), glm::vec3(0.0, -1.0, 0.0), glm::vec2(glm::cos(glm::radians(12.5f)), glm::cos(glm::radians(17.5f))));
 	m_spotLight->setLightUniform(m_myShader);
 
-	m_cube = new Cube(cubeDiff,cubeSpec, 2.0f);
+	m_cube = new Cube(cubeDiff,cubeSpec, 5.0f);
 	m_cube->setCubeMaterialValues(m_myShader);
 
 	m_plane = new Plane(cubeDiff, cubeSpec, 2.0f);
@@ -60,7 +60,7 @@ void Myscene::render()
 	glDrawElements(GL_TRIANGLES, m_cube->getIndicesCount(), GL_UNSIGNED_INT, 0);
 
 	m_cube->translate(glm::vec3(5.0, 0.0, 0.0));
-	m_cube->rotate((float)(glfwGetTime() * 0.5), glm::vec3(1.0, 0.0, 0.0));
+	//m_cube->rotate((float)(glfwGetTime() * 0.5), glm::vec3(1.0, 0.0, 0.0));
 	m_cube->setTransform(m_myShader);
 	glDrawElements(GL_TRIANGLES, m_cube->getIndicesCount(), GL_UNSIGNED_INT, 0);
 	m_cube->resetTransform();
